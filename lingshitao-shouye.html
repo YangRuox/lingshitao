@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingshitao</title>
+    <style>
+         :root {
+         
+            --background-color:  rgb(255, 255, 255);
+           --orsnge: rgb(233, 132, 31);
+        }
+
+
+        body{
+            background-color: var(--background-color);
+        }
+
+
+        .headbox{
+            background-color:rgb(255, 186, 117);
+            margin-top: 0;
+            padding: 5px;
+            height: 10vh;
+            /* border: solid,  rgb(240, 185, 102); */
+            /* border-bottom: solid rgb(233, 132, 31); */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo-section{
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .nav-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 1;
+            align-self: flex-end;
+            
+            
+        }
+
+        .nav-item {
+            
+            font-family: "微软雅黑";
+            font-size: 16px;
+            color: rgb(62, 62, 59);
+            margin: 0;
+            cursor: pointer;
+            padding: 5px 10px ;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+              /* box-shadow: 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2) */
+            transform: scale(1.1)
+        }
+
+        .headbox h1{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 0;
+            
+        }
+
+        .headbox h2{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .headbox h3{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        
+
+        .search-block{
+            display: flex;
+            background-color:var(--background-color);
+            margin: 20px;
+            height: 50px;
+            width: 80%;
+            align-items: center;
+            
+            
+            
+        }
+
+        .pic-display{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;            
+            min-height: 300px;
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            margin: 20px auto 20px;
+            justify-content: space-around;
+            
+            /* overflow: hidden; */
+        }
+
+        .pic-display img {
+            width: calc(50% - 10px);
+
+            max-width: 100%;      
+            height: auto;         
+            max-height: 100%;    
+            border-radius: 8px;   
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* 轻微阴影 */
+            display: block;       
+            margin: 0 auto;       
+            object-fit: contain;  
+        }
+
+        @media (max-width: 768px) {
+    .pic-display img {
+        width: 100%; 
+            }
+        }
+        /* .search-container{
+            display:flex;
+            flex-direction: column;
+            gap: 10px;
+        
+            width: 35%;
+            
+
+        } */
+
+        .search-input{
+            border: 1px solid rgb(215, 211, 190);
+            border-radius: 20px 0  0 20px ;
+            outline: none;
+            height: 70%;
+            width: 30%;
+            padding-left: 15px;
+        }
+
+        
+
+        .search-botton{
+            background-color: rgb(255, 180, 133);
+            color: white;
+            border: solid   rgb(255, 180, 133);
+            outline: none;
+            border-radius: 0 20px 20px 0;
+            height: 70%;
+            width: 10%;
+            flex-shrink: 0;
+            cursor: pointer;
+            min-width: 70px;
+            /* flex-shrink: 1; */
+            font-size: 15px;
+            font-family:"黑体", "Microsoft YaHei", sans-serif;
+            
+
+          
+            
+        }
+
+        .goods-display{
+            /* border-top: solid rgb(248, 149, 51); */
+             background-color: rgb(255, 219, 183);
+             padding: 30px 20px;
+           
+           
+            
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex-wrap: wrap;            
+            min-height: 150px;
+            /* background-color: rgb(255, 255, 255); */
+            width: 95%;
+            margin: 5% auto 50px;
+            justify-content: space-between;
+
+
+        }
+
+        .divider {
+            height: 8px;
+            background-color: rgb(255, 180, 133);
+            margin: 30px auto;
+        }
+
+        
+
+        .goods-display-imgs{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap:30px;
+            
+            width: 100%;
+            margin: 10px auto;
+        
+
+
+        }
+        .goods-display img {
+            background-color: rgb(255, 255, 255);
+                /* flex: 1;  */
+    
+             padding: 5px;
+             width: 100%; 
+             height: auto; 
+             border-radius: 10px;
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+             object-fit: contain; 
+             transition: transform 0.3s ease;
+             cursor: pointer;
+        }
+
+         @media (max-width: 768px) {
+    .goods-display img {
+        width: 100%; 
+            }
+        }
+
+
+
+
+        .goods-display-h2 {
+            padding-top: 20px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    
+    text-decoration: underline;
+    text-decoration-color: rgb(255, 186, 117);
+    text-decoration-thickness: 5px;
+    text-underline-offset: 15px;
+    margin-bottom: 10px;
+    font-family: "微软雅黑";
+    font-weight: 800;
+    font-size: 24px;
+    color: rgb(101, 99, 96);
+    width: 95%; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px; 
+    position: relative;
+        }
+
+        .goods-display img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .seeall{
+            padding-right: 20px;
+            position: absolute;
+            right: 10px;
+            
+            color: rgb(119, 115, 115);
+            font-size: 15px;
+            cursor: pointer; 
+            
+        }
+
+        .seeall:hover {
+            color:rgb(0, 0, 0);
+        }
+
+        .blank-block{
+            background-color: rgb(255, 255, 255);
+            justify-content: center;
+            margin: 30px;
+            height: 100px;
+            width: 100%;
+        }
+
+        
+
+        .bottombox{
+            background-color: rgb(101, 99, 96);
+            width: 100%;
+            padding: 40px 20px 30px;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            font-family: "黑体", "Microsoft YaHei", sans-serif;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .footer-nav a:hover {
+            color: rgb(255, 186, 117);
+            text-decoration: underline;
+        }
+       .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+        
+        /* 版权信息 */
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .footer-copyright a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        
+        .footer-copyright a:hover {
+            color: rgb(255, 186, 117);
+            text-decoration: underline;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .bottombox {
+                padding: 30px 15px 20px;
+            }
+            
+            .footer-nav {
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .footer-nav a {
+                font-size: 15px;
+            }
+            
+            .footer-divider {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            
+            .footer-copyright {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-nav {
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-nav a {
+                font-size: 14px;
+            }
+            
+            .footer-divider {
+                width: 95%;
+            }
+            
+            .footer-copyright {
+                font-size: 12px;
+            }
+        }
+        /* body {
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 150px; 
+            box-sizing: border-box;
+        }
+         */
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="headbox">
+         <div class="logo-section">
+            <h1>🥨 零食淘</h1>
+            <h2>你爱的零食都在这里！</h2>
+        </div>
+        <div class="nav-section">
+            
+            <h3 class="nav-item" onclick="window.location.href='./lingshitao-shouye.html'">首页</h3>
+            <h3 class="nav-item" onclick="window.location.href='./lingsitao-cart.html'">购物车</h3>
+            <h3 class="nav-item">通知</h3>
+            <h3 class="nav-item"onclick="window.location.href='./lingshitao-login.html'">登录</h3>
+        </div>
+    </div>
+
+
+    <div class="search-block">
+        <input class="search-input" type="text" placeholder="风味曲奇">
+        <button class="search-botton">搜索&nbsp;&nbsp;</button>
+        
+        
+        
+    </div>
+
+    <div class="pic-display">
+        <img src="P1.png" alt="">
+        <img src="P2.png" alt="">
+    </div>
+
+    <div class="divider"></div>
+
+
+    <div class="goods-display-h2 ">🔥热销区</div> 
+    <div class="seeall">>>查看全部</div>
+    <div class="goods-display">
+        
+        <div class="goods-display-imgs">
+            <img src="F1.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F2.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F3.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F4.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F5.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F6.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F7.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F8.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+        </div>
+   
+    </div>
+    <div class="goods-display-h2 ">🔥上新区</div> 
+    <div class="seeall">>>查看全部</div>
+
+     <div class="goods-display">
+        
+        <div class="goods-display-imgs">
+            <img src="F9.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F10.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F11.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F12.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F13.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F14.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F15.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F16.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+
+        </div>
+   
+    </div> 
+    <div class="goods-display-h2 ">🔥折扣区</div>  
+    <div class="seeall">>>查看全部</div>
+    <div class="goods-display">
+        
+        <div class="goods-display-imgs">
+            <img src="F17.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F18.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F19.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F20.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F21.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F22.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F23.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+            <img src="F24.png" alt="" onclick="seeimg(this)" title="点击查看大图">
+        </div>
+   
+    </div>
+
+    
+    
+    <div class="bottombox">
+        <!-- 导航链接 -->
+        <div class="footer-nav">
+            <a href="#">关于我们</a>
+            <a href="#">购物指南</a>
+            <a href="#">售后服务</a>
+            <a href="#">新闻资讯</a>
+            <a href="#">联系我们</a>
+        </div>
+        
+        <!-- 白色分割线 -->
+        <div class="footer-divider"></div>
+        
+        <!-- 版权信息 -->
+        <div class="footer-copyright">
+            © 2023 零食淘版权所有 | 
+            <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备12345678号</a>
+        </div>
+    </div>
+
+    <script>
+        function seeimg(imgElement) {
+        
+        const imgSrc = imgElement.src;
+        const overlay = document.createElement('div');
+        
+        overlay.style.cssText = 
+        'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:flex; justify-content:center; align-items:center; z-index:9999; cursor:pointer;';
+        
+        const bigImg = document.createElement('img');
+        bigImg.src = imgSrc;
+        bigImg.style.cssText = 'max-width:60%; max-height:50%; object-fit:contain;';
+        
+        overlay.onclick = () => document.body.removeChild(overlay);
+        overlay.appendChild(bigImg);
+        document.body.appendChild(overlay);
+    }
+    </script>
+    
+</body>
+</html>

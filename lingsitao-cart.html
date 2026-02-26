@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingshitao-cart</title>
+    <style>
+        body {
+            background: white;
+            /* display: flex;
+            flex-direction: column; */
+            
+            
+            margin: 0;
+            /* height: 100vh;
+            width: 100vw; */
+            
+
+        }
+
+
+        .headbox{
+            background-color:rgb(255, 186, 117);
+            margin-top: 0;
+            padding: 5px;
+            height: 10vh;
+            /* border: solid,  rgb(240, 185, 102); */
+            /* border-bottom: solid rgb(233, 132, 31); */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo-section{
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .nav-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 1;
+            align-self: flex-end;
+            
+            
+        }
+
+        .nav-item {
+            
+            font-family: "微软雅黑";
+            font-size: 16px;
+            color: rgb(62, 62, 59);
+            margin: 0;
+            cursor: pointer;
+            padding: 5px 10px ;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+              /* box-shadow: 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2) */
+            transform: scale(1.1)
+        }
+
+        .headbox h1{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 0;
+            
+        }
+
+        .headbox h2{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .headbox h3{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        
+
+        .search-block{
+            display: flex;
+            background-color:var(--background-color);
+            margin: 20px;
+            height: 50px;
+            width: 80%;
+            align-items: center;
+            
+            
+            
+        }
+
+       
+        .search-input{
+            border: 1px solid rgb(215, 211, 190);
+            border-radius: 20px 0  0 20px ;
+            outline: none;
+            height: 70%;
+            width: 30%;
+            padding-left: 15px;
+        }
+
+        
+
+        .search-botton{
+            background-color: rgb(255, 180, 133);
+            color: white;
+            border: solid   rgb(255, 180, 133);
+            outline: none;
+            border-radius: 0 20px 20px 0;
+            height: 70%;
+            width: 10%;
+            flex-shrink: 0;
+            cursor: pointer;
+            min-width: 70px;
+            /* flex-shrink: 1; */
+            font-size: 15px;
+            font-family:"黑体", "Microsoft YaHei", sans-serif;
+            
+
+          
+            
+        }
+
+  
+
+        .bottombox{
+            background-color: rgb(101, 99, 96);
+            width: 100%;
+            padding: 40px 20px 30px;
+            box-sizing: border-box;
+            text-align: center;
+            color: white;
+            font-family: "黑体", "Microsoft YaHei", sans-serif;
+        }
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .footer-nav a:hover {
+            color: rgb(255, 186, 117);
+            text-decoration: underline;
+        }
+       .footer-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 80%;
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+        
+        /* 版权信息 */
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .footer-copyright a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+        }
+        
+        .footer-copyright a:hover {
+            color: rgb(255, 186, 117);
+            text-decoration: underline;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .bottombox {
+                padding: 30px 15px 20px;
+            }
+            
+            .footer-nav {
+                gap: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .footer-nav a {
+                font-size: 15px;
+            }
+            
+            .footer-divider {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+            
+            .footer-copyright {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .footer-nav {
+                gap: 15px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-nav a {
+                font-size: 14px;
+            }
+            
+            .footer-divider {
+                width: 95%;
+            }
+            
+            .footer-copyright {
+                font-size: 12px;
+            }
+        }
+
+        .cart-content{
+            width: 88%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+        }
+
+        
+
+        .cart-table{
+            width: 100%;
+            background-color: white;
+            overflow: hidden;
+            border-collapse: collapse;  
+            border-spacing: 0; 
+
+            
+
+        }
+
+        .cart-table thead tr {
+            background-color: rgb(255, 255, 255);
+            color: rgb(101, 99, 96);
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 2px solid rgb(228, 228, 228);
+           
+        }
+
+        .cart-table th {
+            padding: 18px 15px;
+            text-align: left;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .cart-table tbody tr{
+            height: 120px;
+            border-bottom: 2px solid rgb(228, 228, 228);
+        }
+
+        /* .cart-table tbody td {
+            padding: 20px auto;
+
+        } */
+
+        .checkbox-col {
+            width: 30px;
+        }
+        .checkbox-col input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: rgb(255, 180, 133);
+            cursor: pointer;
+        }
+
+
+        .product-col {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            max-width: 280px;
+        }
+
+        .product-img {
+            width: 70px;
+            height: 70px;
+           
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #eee;
+           
+        }
+
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-name {
+            font-weight: 700;
+            font-size: 16px;
+            color:  rgb(101,99,96);
+            margin-bottom: 5px;
+        }
+
+        .product-spec {
+            font-size: 13px;
+            color: #888;
+        }
+
+
+        .price-col {
+            font-weight: 700;
+            color: rgb(101,99,96);
+            font-size: 14px;
+        }
+
+        .price-col small {
+            font-size: 13px;
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        .quantity-control {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            background-color: white;
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background-color: rgb(255, 180, 133);
+            color: white;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 32px;
+            border: none;
+            border-left: 1px solid #eee;
+            border-right: 1px solid #eee;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgb(101,99,96);
+            background-color: white;
+            outline: none;
+        }
+
+        /* .quantity-input::-webkit-outer-spin-button,
+        .quantity-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .quantity-input[type=number] {
+            -moz-appearance: textfield;
+        } */
+
+        .subtotal-col {
+            font-weight: 800;
+            font-size: 14px;
+            color:  rgb(101,99,96);
+        }
+
+        .action-col button {
+            background: none;
+            border: 1px solid #ddd;
+            color: #999;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .action-col button:hover {
+            border-color: rgb(255, 180, 133);
+            color: rgb(255, 180, 133);
+            background-color: #fff4e8;
+        }
+
+        .cart-footer {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 60px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .select-all {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .select-all input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: rgb(255, 180, 133);
+        }
+
+        .delete-selected {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 10px 22px;
+            border-radius: 30px;
+            color: #777;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .delete-selected:hover {
+            border-color: #ff8a8a;
+            color: #ff6b6b;
+            background-color: #fff2f2;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .total-info {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .total-info span {
+            color: #c44545;
+            font-size: 26px;
+            font-weight: 800;
+            margin-left: 10px;
+        }
+        .checkout-btn {
+            background-color: rgb(255, 180, 133);
+            border: none;
+            padding: 14px 45px;
+            border-radius: 40px;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 180, 133, 0.3);
+            white-space: nowrap;
+        }
+
+        .checkout-btn:hover {
+           box-shadow: 
+            8px 10px 12px -6px rgba(0, 0, 0, 0.12),
+            0 8px 10px -5px rgba(0, 0, 0, 0.2)
+        }
+
+        
+      
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="headbox">
+         <div class="logo-section">
+            <h1>🥨 零食淘</h1>
+            <h2>你爱的零食都在这里！</h2>
+        </div>
+        <div class="nav-section">
+            
+            <h3 class="nav-item" onclick="window.location.href='./lingshitao-shouye.html'">首页</h3>
+            <h3 class="nav-item" onclick="window.location.href='./lingsitao-cart.html'">购物车</h3>
+            <h3 class="nav-item">通知</h3>
+            <h3 class="nav-item"onclick="window.location.href='./lingshitao-login.html'">登录</h3>
+        </div>
+    </div>
+
+
+
+    <div class="cart-content">
+        <table class ="cart-table" >
+            <thead>
+                <tr>
+                    <th class="checkbox-col">
+                     <!-- <input type="checkbox" id="checkAll" title="全选"> -->
+                    </th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="checkbox-col">
+                            <input type="checkbox" class="item-check">
+                        </td>
+                        <td>
+                            <div class="product-col">
+                                <div class="product-img">
+                                    <img src="F1.png" alt="风味曲奇" onerror="this.src='https://via.placeholder.com/70?text=零食'">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">风味曲奇</div>
+                                    <div class="product-spec">规格: 200g</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-col">¥29.90</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="change_number(this, 'decrease')">−</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="99" readonly>
+                                <button class="quantity-btn" onclick="change_number(this, 'increase')">+</button>
+                            </div>
+                        </td>
+                        <td class="subtotal-col">¥29.90</td>
+                        <td class="action-col">
+                            <button onclick="removeItem(this)">删除</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="checkbox-col">
+                            <input type="checkbox" class="item-check">
+                        </td>
+                        <td>
+                            <div class="product-col">
+                                <div class="product-img">
+                                    <img src="F2.png" alt="牛肉粒" onerror="this.src='https://via.placeholder.com/70?text=零食'">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">牛肉粒</div>
+                                    <div class="product-spec">规格: 108g</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-col">¥39.90</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="change_number(this, 'decrease')">−</button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="99" readonly>
+                                <button class="quantity-btn" onclick="change_number(this, 'increase')">+</button>
+                            </div>
+                        </td>
+                        <td class="subtotal-col">¥29.90</td>
+                        <td class="action-col">
+                            <button onclick="removeItem(this)">删除</button>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="checkbox-col">
+                            <input type="checkbox" class="item-check">
+                        </td>
+                        <td>
+                            <div class="product-col">
+                                <div class="product-img">
+                                    <img src="F3.png" alt="巧克力" onerror="this.src='https://via.placeholder.com/70?text=零食'">
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-name">黑巧克力</div>
+                                    <div class="product-spec">规格: 盒装</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="price-col">¥29.90</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="change_number(this, 'decrease')">−</button>
+                                <input type="number" class="quantity-input" value="2" min="1" max="99" readonly>
+                                <button class="quantity-btn" onclick="change_number(this, 'increase')">+</button>
+                            </div>
+                        </td>
+                        <td class="subtotal-col">¥29.90</td>
+                        <td class="action-col">
+                            <button onclick="removeItem(this)">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+   
+        <div class="cart-footer">
+            <div class="footer-left">
+                <div class="select-all">
+                    <input type="checkbox"  id="footerCheckAll"> <label for="footerCheckAll">全选</label>
+                </div>
+                <!-- <button class="delete-selected" onclick="deleteSelected()">删除选中</button> -->
+            </div>
+            <div class="footer-right">
+                <div class="total-info">
+                    总计: <span id="totalAmount">¥169.60</span>
+                </div>
+                <button class="checkout-btn" onclick="alert('结算功能开发中，即将开通')">去结算</button>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+  
+
+ 
+
+    
+    
+
+    
+
+    
+
+
+    
+
+    
+    
+    <div class="bottombox">
+        <!-- 导航链接 -->
+        <div class="footer-nav">
+            <a href="#">关于我们</a>
+            <a href="#">购物指南</a>
+            <a href="#">售后服务</a>
+            <a href="#">新闻资讯</a>
+            <a href="#">联系我们</a>
+        </div>
+        
+        <!-- 白色分割线 -->
+        <div class="footer-divider"></div>
+        
+        <!-- 版权信息 -->
+        <div class="footer-copyright">
+            © 2023 零食淘版权所有 | 
+            <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备12345678号</a>
+        </div>
+    </div>   
+
+    <!-- <script>
+        alert("您当前所在位置：购物车");
+    </script> -->
+
+    <script>
+        function change_number(button, action){
+
+            const quantityControl = button.parentNode;
+            const input =  quantityControl.querySelector('.quantity-input');
+            let val = parseInt(input.value);
+        
+            if (action === 'increase') {
+                if (val < 99) {
+                    input.value = val + 1;
+                    updateSubtotal(button);
+                } 
+            } else if (action === 'decrease') {
+                if (val > 1) {
+                    input.value = val - 1;
+                    updateSubtotal(button);      
+                }
+            }
+            
+
+        }
+        function updateSubtotal(button) {
+       
+        const row = button.closest('tr');
+        
+     
+        const priceText = row.querySelector('.price-col').textContent;
+        const price = parseFloat(priceText.replace('¥', ''));
+        
+        const quantity = parseInt(row.querySelector('.quantity-input').value);
+        
+        // 计算小计
+        const subtotal = price * quantity;
+        
+        // 更新小计显示
+        row.querySelector('.subtotal-col').textContent = '¥' + subtotal.toFixed(2);
+        
+        // 更新总计
+        updateTotal();
+    }
+
+    // 添加更新总计的函数
+    function updateTotal() {
+        let total = 0;
+        document.querySelectorAll('.item-check:checked').forEach(checkbox => {
+            const row = checkbox.closest('tr');
+            const subtotalText = row.querySelector('.subtotal-col').textContent;
+            const value = parseFloat(subtotalText.replace('¥', ''));
+            total += value;
+        });
+        document.getElementById('totalAmount').textContent = '¥' + total.toFixed(2);
+    }
+
+    // 添加删除商品的功能
+    function removeItem(button) {
+        if (confirm('确定要删除这个商品吗？')) {
+            const row = button.closest('tr');
+            row.remove();
+            updateTotal();
+        }
+    }
+
+    function toggleSelectAll() {
+        const selectAllCheckbox = document.getElementById('footerCheckAll');
+        const itemCheckboxes = document.querySelectorAll('.item-check');
+        
+        itemCheckboxes.forEach(checkbox => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+        
+        // 更新总计
+        updateTotal();
+    }
+
+    function updateSelectAllStatus() {
+        const selectAllCheckbox = document.getElementById('footerCheckAll');
+        const itemCheckboxes = document.querySelectorAll('.item-check');
+        const checkedCheckboxes = document.querySelectorAll('.item-check:checked');
+        
+        // 如果所有复选框都被选中，全选按钮也选中；否则取消选中
+        selectAllCheckbox.checked = itemCheckboxes.length === checkedCheckboxes.length;
+        
+        // 如果有选中的商品，更新总计；如果都没有选中，总计显示0
+        updateTotal();
+    }
+
+    function initCheckboxEvents() {
+        // 全选按钮点击事件
+        document.getElementById('footerCheckAll').addEventListener('click', toggleSelectAll);
+        
+        // 为每个商品复选框添加点击事件
+        document.querySelectorAll('.item-check').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                updateSelectAllStatus();
+            });
+        });
+    }
+
+    // 页面加载完成后初始化总计（确保显示正确）
+    document.addEventListener('DOMContentLoaded', function() {
+        updateTotal();
+        initCheckboxEvents();
+    });
+
+
+    </script>
+</body>
+</html>

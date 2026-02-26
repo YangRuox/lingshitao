@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lingshitao-register</title>
+
+    <style>
+        body {
+            background: linear-gradient(to bottom right, rgb(252, 247, 220), #f2c4c4);
+            min-height: 100vh;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+          
+        }
+
+
+        .headbox{
+            background-color:rgb(255, 186, 117);
+            margin-top: 0;
+            padding: 5px;
+            height: 10vh;
+            /* border: solid,  rgb(240, 185, 102); */
+            /* border-bottom: solid rgb(233, 132, 31); */
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo-section{
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .nav-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 1;
+            align-self: flex-end;
+            
+            
+        }
+
+        .nav-item {
+            
+            font-family: "微软雅黑";
+            font-size: 16px;
+            color: rgb(62, 62, 59);
+            margin: 0;
+            cursor: pointer;
+            padding: 5px 10px ;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+             /* box-shadow: 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2) */
+            transform: scale(1.1)
+        }
+
+        .headbox h1{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            margin-bottom: 0;
+            
+        }
+
+        .headbox h2{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        .headbox h3{
+            font-family:"微软雅黑";
+            margin-left: 30px;
+            margin-top: 0;
+            font-size: 15px;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .login-box{
+            background-color: white;
+            max-width: 580px;
+            
+            width:70%;
+            height: 65%;
+            color: black;
+            font-family:"微软雅黑";
+            margin: 70px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            border-radius: 10px;
+        }
+
+        .login-img-section{
+            
+            background-color: rgb(255, 255, 255);
+            width: 30%;
+            height: 100%;
+            /* justify-content: space-between; */
+            overflow: hidden; 
+            border-radius: 10px 0 0 10px;
+            box-shadow: 
+            
+            10px 15px 10px -5px rgba(0, 0, 0, 0.2)
+
+        }
+
+        .login-img-section img{
+            background-color: rgb(255, 255, 255);
+                /* flex: 1;  */
+    
+             position: relative ;
+             left: 0;
+             width: 200px;
+             
+             height: 450px; 
+             
+    /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+             /* object-fit: contain;  */
+             transition: transform 0.3s ease;
+        }
+
+        .login-section{
+            background-color:rgb(255, 255, 255);
+            width: 70%;
+            height: 100%; 
+            display: flex;
+            border-radius: 10px 10px 10px 0;
+            
+            flex-direction: column;
+
+            box-shadow: 
+            15px 5px 12px -6px rgba(0, 0, 0, 0.12),
+            0 15px 10px -5px rgba(0, 0, 0, 0.2)
+
+        }
+
+        .login-head{
+            display: flex;
+            align-items: center; 
+            position: relative;
+            top: 0;
+            background-color: rgb(255, 180, 133);
+            width: 100%;
+            height: 15%;
+            justify-content:center;
+            border-radius: 0 10px 0 0;
+           
+        }
+
+        .head-content{
+            
+            margin: 50px; 
+            flex-shrink: 0;
+            align-items: center; 
+            color: rgb(255, 255, 255);
+            font-family: "微软雅黑";
+            font-size: 16px;
+            font-weight: 800;
+            justify-content: center;
+            align-self: center;
+            cursor: pointer;
+
+        }
+
+        .head-content:hover{
+           /* box-shadow: 
+            8px 10px 12px -6px rgba(0, 0, 0, 0.12),
+            0 8px 10px -5px rgba(0, 0, 0, 0.2) */
+             /* box-shadow: 
+            0 8px 10px -5px rgba(0, 0, 0, 0.2) */
+            transform: scale(1.15)
+
+
+        }
+
+        .login-input{
+            padding-left: 20px;
+            margin: 3% 20px 0 10%;
+            height: 30px;
+            width:70%;
+            border-radius: 5px 5px 5px 5px ;
+            outline: none;
+            border: 1px solid rgb(215, 211, 190);
+            box-shadow: 
+            5px 5px 12px -6px rgba(0, 0, 0, 0.12),
+            0 5px 10px -5px rgba(0, 0, 0, 0.2)
+
+        }
+
+        .input-label{
+            font-family: "微软雅黑";
+            color: rgb(81, 79, 79);
+            font-size: 14px;
+            font-weight:  700;
+            margin-left: 10%;
+            margin-top: 20px;
+            
+        }
+
+        .login-button{
+             background-color: rgb(255, 180, 133);
+            color: white;
+            border: solid  rgb(255, 180, 133);
+            outline: none;
+            border-radius: 10px 10px 10px 10px;
+            height: 10%;
+            width: 60%;
+            /* margin-top: 5%; */
+            
+            flex-shrink: 0;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+
+            cursor: pointer;
+            min-width: 70px;
+            flex-shrink: 1;
+            margin: 35px auto;
+            
+            
+            cursor: pointer;
+            line-height: 1; 
+
+            box-shadow: 
+            5px 5px 12px -6px rgba(0, 0, 0, 0.12),
+            0 5px 10px -5px rgba(0, 0, 0, 0.2)
+
+        }
+
+        .login-button:hover{
+           box-shadow: 
+            8px 10px 12px -6px rgba(0, 0, 0, 0.12),
+            0 8px 10px -5px rgba(0, 0, 0, 0.2)
+
+
+        }
+
+        .divider-v {
+            width: 2px;
+            height: 55px;
+            background-color: white;
+            opacity: 0.8;
+            border-radius: 1px;
+            margin: 0 10px;  
+        }
+
+        .rememberme{
+
+            font-size: 12px;
+            font-family:"微软雅黑";
+            color: rgb(110, 105, 105);
+            font-weight: 800;
+            margin-left: 35px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6%;
+            flex-shrink: 1
+        }
+
+        .rememberme input{
+            font-family:"微软雅黑";
+            color: rgb(55, 55, 55);
+            cursor: pointer;
+            accent-color: rgb(255, 180, 133);
+            
+        }
+
+        .forget{
+            font-size: 12px;
+            font-family:"微软雅黑";
+            color: rgb(255, 180, 133);
+            font-weight: 800;
+            padding-right: 5px;
+            justify-self: flex-end;
+            cursor: pointer;
+
+        }
+
+        .botton-content{
+            font-size: 15px;
+            font-family:"微软雅黑";
+            font-weight: 800;
+            
+            display: flex;
+            align-self: center;
+            justify-content: center;
+
+        }
+
+
+
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="headbox">
+         <div class="logo-section">
+            <h1>🥨 零食淘</h1>
+            <h2>你爱的零食都在这里！</h2>
+        </div>
+        <div class="nav-section">
+            
+            <h3 class="nav-item" onclick="window.location.href='./lingshitao-shouye.html'">首页</h3>
+            <h3 class="nav-item" onclick="window.location.href='./lingsitao-cart.html'">购物车</h3>
+            <h3 class="nav-item">通知</h3>
+            <h3 class="nav-item"onclick="window.location.href='./lingshitao-login.html'">登录</h3>
+        </div>
+    </div>
+
+
+    <div class="login-box">
+        <div class="login-img-section">
+            <img src="C1.png" alt="">
+        </div>
+        <div class="login-section">
+            <div class="login-head">
+                <div class="head-content" onclick="window.location.href='./lingshitao-login.html'">登&nbsp录</div>
+                <div class="divider-v"></div>
+                <div class="head-content" onclick="window.location.href='./lingshitao-register.html'">注&nbsp册</div>
+            </div>
+            <div class="input-label">用户名</div>
+            <input class="login-input" type="text" placeholder="请输入用户名">
+            <div class="input-label" style="display: flex; align-items: center; gap: 10px;">
+                 <span>密码</span>
+                 <span id="password-length-error" style="color: #ff4444; font-size: 12px; font-weight: normal; display: none;">密码不能少于8位！</span>
+            </div>
+            <input class="login-input" id="password" type="password" placeholder="请输入密码" oninput="checkPasswordMatch()">
+            <div class="input-label" style="display: flex; align-items: center; gap: 10px;">
+                <span>确认密码</span>
+                <span id="password-error" style="color: #ff4444; font-size: 12px; font-weight: normal; display: none;">密码不一致！</span>
+            </div>
+            <div style="position: relative; width: 100%;">
+                <input class="login-input" id="confirm-password" type="password" placeholder="请再次输入密码" oninput="checkPasswordMatch()">
+            </div>
+            <!-- <div class="rememberme">
+                <div style="display: flex; align-items: center; gap: 6px;"></div>
+                <input type="checkbox" id="remember">
+                <label for="remember">记住我</label>
+                
+            </div> -->
+            
+             
+            
+            <div class="login-button">
+                <div class="botton-content">注册</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+    function checkPasswordMatch() {
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirm-password');
+        const errorSpan = document.getElementById('password-error');
+        const lengthErrorSpan = document.getElementById('password-length-error'); 
+
+        
+        if (password.value.length > 0 && password.value.length < 8) {
+            lengthErrorSpan.style.display = 'inline';
+            password.style.borderColor = '#ff4444';
+        } else {
+            lengthErrorSpan.style.display = 'none';
+            if (password.value.length === 0 || (confirmPassword.value.length === 0)) {
+                password.style.borderColor = '#ddd';
+            }
+        }
+        
+        
+        if (confirmPassword.value.length > 0) {
+            if (password.value !== confirmPassword.value) {
+                errorSpan.style.display = 'inline';
+                confirmPassword.style.borderColor = '#ff4444';
+                password.style.borderColor = '#ff4444';
+            } else {
+                errorSpan.style.display = 'none';
+                confirmPassword.style.borderColor = '#4CAF50';  // 绿色表示匹配
+                password.style.borderColor = '#4CAF50';
+            }
+        } else {
+            errorSpan.style.display = 'none';
+            confirmPassword.style.borderColor = '#ddd';
+            password.style.borderColor = '#ddd';
+        }
+    }
+</script>
+    
+</body>
+</html>
